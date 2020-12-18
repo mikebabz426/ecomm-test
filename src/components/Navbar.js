@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import { Link } from "react-router-dom";
 
 const Header = styled.nav`
 	height: 60px;
@@ -78,7 +79,9 @@ const IconWrap = styled.div`
 const Navbar = () => {
 	return (
 		<Header>
-			<Logo src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+			<Link to="/">
+				<Logo src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+			</Link>
 			<Search>
 				<SearchInput />
 				<IconBox>
@@ -98,10 +101,12 @@ const Navbar = () => {
 					<HighlightOne>Your</HighlightOne>
 					<HighlightTwo>Prime</HighlightTwo>
 				</Option>
-				<IconWrap>
-					<Basket />
-					<ItemsSpan>0</ItemsSpan>
-				</IconWrap>
+				<Link to="/checkout">
+					<IconWrap>
+						<Basket />
+						<ItemsSpan>0</ItemsSpan>
+					</IconWrap>
+				</Link>
 			</MiniNav>
 		</Header>
 	);
