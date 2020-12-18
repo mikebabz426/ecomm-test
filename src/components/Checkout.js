@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Subtotal from "../components/Subtotal";
 
 const CheckoutWrap = styled.div`
 	display: flex;
@@ -35,7 +36,7 @@ const Checkout = () => {
 				</HeadingContainer>
 			</CheckoutLeft>
 			<CheckoutRight>
-				<Title>The subtotal will go here</Title>
+				<Subtotal />
 			</CheckoutRight>
 		</CheckoutWrap>
 	);
