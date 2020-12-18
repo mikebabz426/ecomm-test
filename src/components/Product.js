@@ -1,30 +1,70 @@
 import React from "react";
 import styled from "styled-components";
 
-const ProductWrap = styled.div``;
+const ProductWrap = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	margin: 10px;
+	padding: 20px;
+	width: 100%;
+	max-height: 400px;
+	min-width: 100px;
+	background-color: #fff;
+	z-index: 1;
+`;
 
-const Info = styled.div``;
+const Info = styled.div`
+	height: 100px;
+	margin-bottom: 15px;
+`;
 
 const Title = styled.p``;
 
-const Price = styled.p``;
+const Price = styled.p`
+	margin-top: 5px;
+`;
 
-const Rating = styled.div``;
+const Rating = styled.div`
+	display: flex;
+`;
 
-const ProductImage = styled.img``;
+const ProductImage = styled.img`
+	max-height: 200px;
+	width: 100%;
+	object-fit: contain;
+	margin-bottom: 15px;
+`;
 
-const Product = () => {
+const Button = styled.button`
+	background: #f0c14b;
+	border: 1px solid;
+	margin-top: 10px;
+	border-color: #a88734 #9c7e31 #846a29;
+	color: #111;
+	padding: 0.2rem;
+`;
+
+const Product = ({ id, title, price, rating, image }) => {
 	return (
 		<ProductWrap>
 			<Info>
-				<Title>Product Here</Title>
+				<Title>{title}</Title>
 				<Price>
 					<small>$</small>
-					<strong>12.99</strong>
+					<strong>{price}</strong>
 				</Price>
-				<Rating>⭐⭐⭐⭐⭐</Rating>
+				<Rating>
+					{Array(rating)
+						.fill()
+						.map((stars, i) => (
+							<p key={i}>⭐</p>
+						))}
+				</Rating>
 			</Info>
-			<ProductImage />
+			<ProductImage src={image} alt="product-image" />
+			<Button>Add to Basket</Button>
 		</ProductWrap>
 	);
 };
