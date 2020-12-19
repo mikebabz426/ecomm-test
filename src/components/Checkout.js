@@ -34,6 +34,11 @@ const Checkout = () => {
 				<HeadingContainer>
 					<Title>Your Shopping Basket</Title>
 				</HeadingContainer>
+
+				{/* SHOPPING CART ITEM */}
+				{/* SHOPPING CART ITEM */}
+				{/* SHOPPING CART ITEM */}
+				{/* SHOPPING CART ITEM */}
 			</CheckoutLeft>
 			<CheckoutRight>
 				<Subtotal />

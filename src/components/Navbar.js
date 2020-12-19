@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
+import { useStateValue } from "./../StateProvider";
 
 const Header = styled.nav`
 	height: 60px;
@@ -77,6 +78,8 @@ const IconWrap = styled.div`
 `;
 
 const Navbar = () => {
+	const [{ basket }, dispatch] = useStateValue();
+
 	return (
 		<Header>
 			<Link to="/">
@@ -104,7 +107,7 @@ const Navbar = () => {
 				<Link to="/checkout">
 					<IconWrap>
 						<Basket />
-						<ItemsSpan>0</ItemsSpan>
+						<ItemsSpan>{basket.length}</ItemsSpan>
 					</IconWrap>
 				</Link>
 			</MiniNav>

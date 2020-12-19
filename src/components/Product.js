@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useStateValue } from "./../StateProvider";
 
 const ProductWrap = styled.div`
 	display: flex;
@@ -47,6 +48,20 @@ const Button = styled.button`
 `;
 
 const Product = ({ id, title, price, rating, image }) => {
+	const [state, dispatch] = useStateValue();
+	const addToBasket = () => {
+		dispatch({
+			type: "ADD_TO_BASKET",
+			item: {
+				id: id,
+				title: title,
+				image: image,
+				price: price,
+				rating: rating,
+			},
+		});
+	};
+
 	return (
 		<ProductWrap>
 			<Info>
@@ -58,13 +73,13 @@ const Product = ({ id, title, price, rating, image }) => {
 				<Rating>
 					{Array(rating)
 						.fill()
-						.map((stars, i) => (
+						.map((_, i) => (
 							<p key={i}>⭐</p>
 						))}
 				</Rating>
 			</Info>
 			<ProductImage src={image} alt="product-image" />
-			<Button>Add to Basket</Button>
+			<Button onClick={addToBasket}>Add to Basket</Button>
 		</ProductWrap>
 	);
 };
