@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { auth, db } from "../firebase";
+import { auth } from "../firebase";
 
 const LoginWrap = styled.div`
 	display: flex;
