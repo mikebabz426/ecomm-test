@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Subtotal from "../components/Subtotal";
+import CheckoutProduct from "./CheckoutProduct";
+import { useStateValue } from "./../StateProvider";
 
 const CheckoutWrap = styled.div`
 	display: flex;
@@ -27,6 +29,8 @@ const Title = styled.h2`
 `;
 
 const Checkout = () => {
+	const [{ basket }] = useStateValue();
+
 	return (
 		<CheckoutWrap>
 			<CheckoutLeft>
@@ -34,6 +38,9 @@ const Checkout = () => {
 				<HeadingContainer>
 					<Title>Your Shopping Basket</Title>
 				</HeadingContainer>
+				{basket.map((item, i) => (
+					<CheckoutProduct key={i} {...item} />
+				))}
 
 				{/* SHOPPING CART ITEM */}
 				{/* SHOPPING CART ITEM */}

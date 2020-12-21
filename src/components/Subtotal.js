@@ -37,7 +37,7 @@ const GiftInput = styled.input`
 `;
 
 const Subtotal = () => {
-	const [{ basket }, dispatch] = useStateValue();
+	const [{ basket }] = useStateValue();
 
 	return (
 		<SubtotalWrap>

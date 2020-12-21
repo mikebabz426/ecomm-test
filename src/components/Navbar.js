@@ -78,7 +78,7 @@ const IconWrap = styled.div`
 `;
 
 const Navbar = () => {
-	const [{ basket }, dispatch] = useStateValue();
+	const [{ basket }] = useStateValue();
 
 	return (
 		<Header>
@@ -92,10 +92,12 @@ const Navbar = () => {
 				</IconBox>
 			</Search>
 			<MiniNav>
-				<Option>
-					<HighlightOne>Hello Guest</HighlightOne>
-					<HighlightTwo>Sign In</HighlightTwo>
-				</Option>
+				<Link to="/login">
+					<Option>
+						<HighlightOne>Hello Guest</HighlightOne>
+						<HighlightTwo>Sign In</HighlightTwo>
+					</Option>
+				</Link>
 				<Option>
 					<HighlightOne>Returns</HighlightOne>
 					<HighlightTwo>& Orders</HighlightTwo>

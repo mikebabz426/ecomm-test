@@ -48,7 +48,7 @@ const Button = styled.button`
 `;
 
 const Product = ({ id, title, price, rating, image }) => {
-	const [state, dispatch] = useStateValue();
+	const [, dispatch] = useStateValue();
 	const addToBasket = () => {
 		dispatch({
 			type: "ADD_TO_BASKET",
