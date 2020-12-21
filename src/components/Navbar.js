@@ -4,6 +4,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./../StateProvider";
+import { auth } from "../firebase";
 
 const Header = styled.nav`
 	height: 60px;
@@ -78,7 +79,13 @@ const IconWrap = styled.div`
 `;
 
 const Navbar = () => {
-	const [{ basket }] = useStateValue();
+	const [{ basket, user }] = useStateValue();
+
+	const handleAuthentication = () => {
+		if (user) {
+			auth.signOut();
+		}
+	};
 
 	return (
 		<Header>
@@ -92,10 +99,10 @@ const Navbar = () => {
 				</IconBox>
 			</Search>
 			<MiniNav>
-				<Link to="/login">
-					<Option>
-						<HighlightOne>Hello Guest</HighlightOne>
-						<HighlightTwo>Sign In</HighlightTwo>
+				<Link to={!user && "/login"}>
+					<Option onClick={handleAuthentication}>
+						<HighlightOne>Hello {user ? user.email : "Guest"}</HighlightOne>
+						<HighlightTwo>{user ? "Sign Out" : "Sign In"}</HighlightTwo>
 					</Option>
 				</Link>
 				<Option>

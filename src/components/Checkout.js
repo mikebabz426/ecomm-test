@@ -29,13 +29,14 @@ const Title = styled.h2`
 `;
 
 const Checkout = () => {
-	const [{ basket }] = useStateValue();
+	const [{ basket, user }] = useStateValue();
 
 	return (
 		<CheckoutWrap>
 			<CheckoutLeft>
 				<BannerAd src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg" />
 				<HeadingContainer>
+					<h3>Hello {user?.email}</h3>
 					<Title>Your Shopping Basket</Title>
 				</HeadingContainer>
 				{basket.map((item, i) => (
